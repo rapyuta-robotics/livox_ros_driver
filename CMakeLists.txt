@@ -1,4 +1,6 @@
-# judge which cmake codes to use 
+set(ROS_EDITION ROS1)
+
+# judge which cmake codes to use
 if(ROS_EDITION STREQUAL "ROS1")
 
   # Copyright(c) 2019 livoxtech limited.
@@ -175,8 +177,8 @@ if(ROS_EDITION STREQUAL "ROS1")
     RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
   )
 
-  install(DIRECTORY launch_ROS1/
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch_ROS1
+  install(DIRECTORY config launch
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   )
 
   #---------------------------------------------------------------------------------------
