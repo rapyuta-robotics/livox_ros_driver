@@ -92,8 +92,15 @@ if(ROS_EDITION STREQUAL "ROS1")
   set(CMAKE_CXX_STANDARD_REQUIRED ON)
   set(CMAKE_CXX_EXTENSIONS OFF)
 
-  ## make sure the livox_lidar_sdk_static library is installed
-  find_library(LIVOX_LIDAR_SDK_LIBRARY  liblivox_lidar_sdk_static.a    /usr/local/lib)
+  ## fetch content on Livox SDK
+  set(LIVOX_LIDAR_SDK_LIBRARY livox_lidar_sdk_static)
+
+  include(FetchContent)
+  FetchContent_Declare(livox_sdk
+      GIT_REPOSITORY https://github.com/Livox-SDK/Livox-SDK2.git
+      GIT_TAG        v1.2.4
+  )
+  FetchContent_MakeAvailable(livox_sdk)
 
   ## PCL library
   link_directories(${PCL_LIBRARY_DIRS})
